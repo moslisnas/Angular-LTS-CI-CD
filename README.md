@@ -12,6 +12,19 @@ ng serve
 
 Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
 
+## Additional services or features
+
+### Nexus repository
+
+To start a local nexus repository server, run:
+
+```bash
+docker-compose up -d
+```
+
+Once the server is running, open your browser and navigate to `http://localhost:8081/`. Default password is located inside the container at "/nexus-data/admin.password", we can acces the container and read the default value, then we can set the password: 
+
+
 ## Code scaffolding
 
 Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
