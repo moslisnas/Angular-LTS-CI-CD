@@ -14,16 +14,25 @@ Once the server is running, open your browser and navigate to `http://localhost:
 
 ## Additional services or features
 
-### Nexus repository
-
-To start a local nexus repository server, run:
+To start the additional services or features, run:
 
 ```bash
 docker-compose up -d
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:8081/`. Default password is located inside the container at "/nexus-data/admin.password", we can acces the container and read the default value, then we can set the password: 
+This command run the following services:
 
+### Nexus repository
+
+Local nexus repository server.
+
+Once the server is running, open your browser and navigate to `http://localhost:8081/`. Default password is located inside the container at "/nexus-data/admin.password", we can acces the container and read the default value, then we can set the password.
+
+### Jenkins service
+
+Local Jenkins service server.
+
+Once the server is running, open your browser and navigate to `http://localhost:8080/`.
 
 ## Code scaffolding
 
