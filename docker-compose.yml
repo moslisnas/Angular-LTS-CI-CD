@@ -1,12 +1,30 @@
-version: '3'
+version: '3.8'
+
 services:
   nexus:
     image: sonatype/nexus3
+    container_name: nexus
     ports:
-      - "8081:8081"
+      - "8081:8081"  # Interfaz de Nexus
     volumes:
       - nexus-data:/nexus-data
     restart: unless-stopped
 
+  jenkins:
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"  # Interfaz Jenkins
+      - "50000:50000"  # Puerto para agentes Jenkins
+    volumes:
+      - jenkins-data:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock  # Para que Jenkins pueda usar Docker (opcional)
+    environment:
+      - JAVA_OPTS=-Djenkins.install.runSetupWizard=false
+    restart: unless-stopped
+    depends_on:
+      - nexus
+
 volumes:
   nexus-data:
+  jenkins-data:
